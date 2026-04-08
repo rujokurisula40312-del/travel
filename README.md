@@ -6,6 +6,7 @@ Telegram-бот для турагентств: ИИ-консультант + к�
 
 | Файл | О чём |
 |---|---|
+| [`docs/getting-started.md`](docs/getting-started.md) | **👉 Начни отсюда.** План действий для нетехнического владельца: что делать прямо сейчас. |
 | [`docs/product-vision.md`](docs/product-vision.md) | Продуктовое видение, целевая аудитория, монетизация, онбординг клиентов, юридика (ФЗ-152). |
 | [`docs/architecture.md`](docs/architecture.md) | Техническая архитектура: модули, потоки данных, FSM, мультиклиентность, разграничение ПД. |
 | [`docs/data-schemas.md`](docs/data-schemas.md) | Схемы Google Sheets, структура Notion, формат конфига клиента. |
