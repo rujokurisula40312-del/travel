@@ -34,6 +34,17 @@ export class TelegramKnowledgeBot {
     });
   }
 
+  mainMenu() {
+    return {
+      keyboard: [
+        [{ text: "/search Китай" }, { text: "/collections" }],
+        [{ text: "/help" }, { text: "/ping" }]
+      ],
+      resize_keyboard: true,
+      one_time_keyboard: false
+    };
+  }
+
   async getUpdates() {
     return this.telegram("getUpdates", {
       offset: this.offset,
@@ -62,8 +73,24 @@ export class TelegramKnowledgeBot {
     }
 
     try {
-      if (text === "/start" || text === "/help") {
-        await this.sendMessage(chatId, formatHelp());
+      if (text.startsWith("/start")) {
+        await this.sendMessage(
+          chatId,
+          [
+            "Бот базы знаний Yonote запущен.",
+            "",
+            "Можно сразу написать страну или тему, например: Китай, Япония, визы, гиды.",
+            "",
+            "Чтобы добавить материал:",
+            "/save Заголовок | Категория | Текст"
+          ].join("\n"),
+          { reply_markup: this.mainMenu() }
+        );
+        return;
+      }
+
+      if (text === "/help") {
+        await this.sendMessage(chatId, formatHelp(), { reply_markup: this.mainMenu() });
         return;
       }
 
